@@ -1,0 +1,27 @@
+{% extends "orders/base.html" %}
+
+{% block title %}
+ Apertura de Caja
+{% endblock %}
+
+{% block body %}
+
+<h1>Apertura de Caja</h1>
+<h3>Monto Inicial</h3>
+
+<form action="{% url 'pagina_exitosa' %}" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <label >Monto $</label>
+        <input type="number" class="form-control" name="monto" value="0" placeholder="">
+      </div>
+      <button class="btn btn-primary" type="submit">
+        Abrir Caja</button>
+
+      <a href="{% url 'index2' %}"> 
+      <button class="btn btn-primary" type="button">
+        Cancelar</button>
+      </a>
+</form>
+
+{% endblock %}

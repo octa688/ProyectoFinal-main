@@ -1,0 +1,35 @@
+{% extends "orders/base.html" %}
+
+{% block title %}
+Pago de Impuestos
+{% endblock %}
+
+{% block body %}
+
+<h1>Pago Impuestos</h1>
+
+<form action="{% url 'pagina_exitosa_pagoimpuesto' %}" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="nameimpuesto">Seleccione un impuesto:</label>
+        <select id="nameimpuesto" name="nameimpuesto" required class="form-control">
+            {% for impuesto in impuestos %}
+            <option value="{{ impuesto.id }}">{{ impuesto.name }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label>Numero de factura</label>
+        <input type="text" value="" class="form-control" name="factura" placeholder="">
+        <label>Monto a pagar $</label>
+        <input type="number" value="0" class="form-control" name="montopagar" placeholder="">
+
+    </div>
+    <button class="btn btn-primary" type="submit">
+        Pagar</button>
+
+    <a href="{% url 'index2' %}">
+        <button class="btn btn-primary" type="button">
+            Cancelar</button>
+    </a>
+</form>
+{% endblock %}

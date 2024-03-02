@@ -1,0 +1,19 @@
+{% extends "orders/base.html" %}
+
+{% block title %}
+ Registrarse
+{% endblock %}
+
+{% block body %}
+<h1>Regístrate</h1>
+
+ <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+<button type="submit">Regístrate</button>
+    </form>
+
+
+    Si ya tiene una cuenta <a href="{% url 'index' %}" target="blank"><strong>inicie sesión</strong></a> en su lugar.
+
+{% endblock %}

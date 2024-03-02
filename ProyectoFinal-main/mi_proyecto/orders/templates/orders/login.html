@@ -1,0 +1,36 @@
+{% extends "orders/base.html" %}
+
+{% block title %}
+ Logueo
+{% endblock %}
+
+{% block body %}
+<h1>Iniciar Sesión</h1>
+{% if message %}
+    <div>
+        {{ message }}
+    </div>
+{% endif %}
+
+<form action="{% url 'login' %}" method="post">
+	 {% csrf_token %}
+<div class="form-group">
+    <label >Nombre de Usuario</label>
+    <input type="text" class="form-control" name="username" placeholder="">
+  </div>
+
+ 
+  <div class="form-group">
+    <label >Contraseña</label>
+    <input type="password" class="form-control" placeholder="" name="password" type="password">
+  </div>
+
+  <button type="submit" class="btn btn-primary" value="Login">Iniciar</button>
+  <a href="{% url 'index2' %}"> 
+    <button class="btn btn-primary" type="button">
+      Cancelar</button>
+    </a>
+</form>
+
+<small>	¿Necesitas una cuenta? Haga clic aquí para <a href="{% url 'signup' %}">Registrarse</a></small>
+{% endblock %}

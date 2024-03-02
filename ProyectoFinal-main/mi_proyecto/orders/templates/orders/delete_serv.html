@@ -1,0 +1,16 @@
+{% extends "orders/base.html" %}
+
+{% block title %}
+Eliminar servicio{% endblock %}
+
+{% block body %}
+
+<h1>Agregar servicio</h1>
+    <h1>Confirmar Eliminación de Servicio</h1>
+    <p>¿Estás seguro de que quieres eliminar el servicio "{{ servicio.name }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button class="btn btn-primary"  type="submit">Confirmar Eliminación</button>
+    </form>
+
+{% endblock %}

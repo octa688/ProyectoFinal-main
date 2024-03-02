@@ -1,0 +1,75 @@
+{% extends "orders/base.html" %}
+
+{% block title %}
+ Apertura de Caja
+{% endblock %}
+
+{% block body %}
+
+<style>
+    /* styles.css */
+
+/* Estilos generales de la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Estilos para las celdas de la tabla */
+table td, table th {
+    border: 1px solid #dddddd;
+    padding: 8px;
+}
+
+/* Estilo para el encabezado de la tabla */
+table th {
+    background-color: #f2f2f2;
+}
+
+/* Estilos alternados para filas */
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+</style>
+
+<body>
+    <h1>Proveedores de servicio</h1>
+    {% if items %}
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Direccion</th>
+                <th>Telefono</th>
+                <th>Mail</th>
+                <th>Tipo</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for item in items %}
+            <tr>
+                <td>{{ item.name }}</td>
+                <td>{{ item.address }}</td>
+                <td>{{ item.phone }}</td>
+                <td>{{ item.mail }}</td>
+                <td>{{ item.type }}</td>
+                <td>
+                    <a href="{% url 'pagina_exitosa_editar_servicio' item.pk %}">Editar</a>
+                    <a href="{% url 'pagina_exitosa_eliminar_servicio' item.pk %}">Eliminar</a>
+                </td>
+                    
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No hay items disponibles.</p>
+    {% endif %}
+    <a href="{% url 'pagina_exitosa_servicio' %}">Crear nuevo servicio</a>
+
+</body>
+
+
+
+{% endblock %}

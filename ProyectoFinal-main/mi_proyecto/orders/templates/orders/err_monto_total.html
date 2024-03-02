@@ -1,0 +1,13 @@
+{% extends "orders/base.html" %}
+
+{% block title %}
+ Falta dinero
+{% endblock %}
+
+{% block body %}
+
+<h1>No tiene dinero para pagar el servicio</h1>
+<a href="{% url 'pagoimpuestos' %}">Ir a pago de servicios</a>
+
+
+{% endblock %}

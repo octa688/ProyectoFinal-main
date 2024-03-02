@@ -1,0 +1,22 @@
+{% extends "orders/base.html" %}
+
+{% block title %}
+Cierre de Caja
+{% endblock %}
+
+{% block body %}
+
+<h1>Cierre de Caja</h1>
+<h3>Monto Final</h3>
+
+<form action="{% url 'pagina_exitosa_cierrecaja' %}" method="post">
+  {% csrf_token %}
+  <button class="btn btn-primary" type="submit">
+    Cerrar Caja</button>
+  <a href="{% url 'index2' %}">
+    <button class="btn btn-primary" type="button">
+      Cancelar</button>
+  </a>
+
+</form>
+{% endblock %}
